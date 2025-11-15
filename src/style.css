@@ -1,0 +1,16 @@
+
+@import "./ghost/content.css";
+@import "./ghost/members.css";
+@import "./ghost/errors.css";
+@import "./ghost/pagination.css";
+@import "./ghost/comments.css";
+
+/* Define Ghost accent color variable */
+:root {
+  --ghost-accent-color: #your-accent-color; /* Replace with your desired color */
+}
+
+/* Example usage: Apply accent color to links */
+a {
+  color: var(--ghost-accent-color);
+}

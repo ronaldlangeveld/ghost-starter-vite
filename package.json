@@ -1,0 +1,55 @@
+{
+  "name": "ghost-starter-vite",
+  "description": "A super minimal Ghost theme starter using Vite",
+  "demo": "https://ronald.ink",
+  "version": "1.0.0",
+  "engines": {
+    "ghost": ">=6.0.0"
+  },
+  "license": "MIT",
+  "screenshots": {
+    "desktop": "assets/screenshot-desktop.jpg"
+  },
+  "private": false,
+  "type": "module",
+  "scripts": {
+    "dev": "vite build --watch",
+    "build": "tsc && vite build",
+    "preview": "vite preview",
+    "zip-dry": "mkdir -p dist && PKG_NAME=$(node -p \"require('./package.json').name\") && zip -r dist/$PKG_NAME.zip . -x 'node_modules/*' -x 'dist/*' -x '.git/*'",
+    "zip": "npm install && npm run build && npm run zip-dry"
+  },
+  "devDependencies": {
+    "typescript": "~5.9.3",
+    "vite": "^7.1.7"
+  },
+  "author": {
+    "name": "Ronald Langeveld",
+    "email": "hi@ronaldlangeveld.com",
+    "url": "https://ronald.ink"
+  },
+  "config": {
+    "card_assets": true,
+    "posts_per_page": 100,
+    "image_sizes": {
+      "xxs": {
+        "width": 30
+      },
+      "xs": {
+        "width": 100
+      },
+      "s": {
+        "width": 300
+      },
+      "m": {
+        "width": 600
+      },
+      "l": {
+        "width": 1200
+      },
+      "xl": {
+        "width": 2000
+      }
+    }
+  }
+}

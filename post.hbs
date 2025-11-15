@@ -1,0 +1,17 @@
+{{!< default}}
+{{#post}}
+<h1>{{title}}</h1>
+<p>Published on {{date format="DD MMM YYYY"}}</p>
+{{#if feature_image}}
+<img src="{{feature_image}}" alt="{{title}}" />
+{{/if}}
+<div class="gh-canvas gh-content">
+    {{content}}
+</div>
+{{#prev_post}}
+<p><a href="{{url}}">Previous: {{title}}</a></p>
+{{/prev_post}}
+{{#next_post}}
+<p><a href="{{url}}">Next: {{title}}</a></p>
+{{/next_post}}
+{{/post}}
