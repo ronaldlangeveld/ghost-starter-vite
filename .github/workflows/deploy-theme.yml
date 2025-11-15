@@ -14,18 +14,19 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: 20
-          cache: 'npm'          # speeds up repeat runs massively
+          cache: 'npm'
 
       - name: Install dependencies
-        run: npm ci                # reproducible & fast, never use npm install in CI
+        run: npm ci
+
+      - name: Fix npm being shit on Linux (delete this line in 2026)
+        run: npm install @rollup/rollup-linux-x64-gnu
 
       - name: Build assets with Vite
-        run: npm run build         # if your script is just "vite build", change to: npx vite build
+        run: npm run build
 
       - name: Deploy to Ghost
         uses: TryGhost/action-deploy-theme@v1
         with:
           api-url: ${{ secrets.GHOST_ADMIN_API_URL }}
           api-key: ${{ secrets.GHOST_ADMIN_API_KEY }}
-          # optional but recommended if you have big src/ or config files
-          # exclude: "src/** node_modules/** *.config.* tailwind.config.* postcss.config.* *.md .editorconfig"
